@@ -297,6 +297,96 @@ footer {
     animation: fadeInUp 1s ease-out forwards;
 }
 
+.issues-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaço entre os cartões */
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza a coluna na tela */
+    text-align: left; /* Texto alinhado à esquerda dentro do cartão */
+}
+
+/* O Cartão Individual */
+.issue-item {
+    background-color: #1a1a1a; /* Fundo cinza escuro */
+    border: 1px solid #333;
+    border-left: 4px solid #b30000; /* Borda vermelha na esquerda para destaque */
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Efeito ao passar o mouse */
+.issue-item:hover {
+    transform: translateX(5px); /* Move levemente para a direita */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: #222;
+}
+
+/* Cabeçalho do item (Badge + Título) */
+.issue-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Garante que não quebre em celulares muito pequenos */
+}
+
+.issue-header h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+}
+
+/* Estilo da etiqueta "PENDENTE" ou "CORRIGIDO" */
+.status-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+/* Estilo específico para status de alerta (Pendente) */
+.status-badge.warning {
+    background-color: rgba(255, 165, 0, 0.15); /* Laranja transparente */
+    color: #ffb700; /* Texto laranja */
+    border: 1px solid #ffb700;
+}
+
+/* Estilo para status corrigido (caso você use no futuro) */
+.status-badge.fixed {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+/* Texto da descrição */
+.issue-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+/* Texto de solução temporária */
+.workaround {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+    font-style: italic;
+}
+
+.workaround strong {
+    color: #4caf50; /* Verde para destacar a palavra 'Solução' */
+}
+
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
