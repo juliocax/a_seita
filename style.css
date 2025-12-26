@@ -1,0 +1,530 @@
+/* RESET & BASICS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.logo-img {
+    /* Define um tamanho máximo para não estourar em celulares */
+    max-width: 40%; 
+    height: auto; 
+    margin-bottom: 30px; 
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.8)); 
+}
+
+/* --- AVISO DE DISPONIBILIDADE --- */
+.availability-banner {
+    display: inline-block;
+    background: rgba(179, 0, 0, 0.2); /* Fundo vermelho transparente */
+    border: 1px solid #b30000;
+    color: #ff4d4d;
+    padding: 12px 25px;
+    margin: 20px 0 40px;
+    border-radius: 4px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(179, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.availability-banner i {
+    margin-right: 10px;
+    color: #fff;
+}
+
+/* --- LISTA DE CONQUISTAS (Mantivemos o estilo bonito) --- */
+.achievements-stats-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px 10px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.achievements-list-wrapper {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Scrollbar escura */
+.achievements-list-wrapper::-webkit-scrollbar { width: 8px; }
+.achievements-list-wrapper::-webkit-scrollbar-track { background: #0a0a0a; }
+.achievements-list-wrapper::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+.achievements-list-wrapper::-webkit-scrollbar-thumb:hover { background: #b30000; }
+
+.achievements-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.achievement-row {
+    display: flex;
+    align-items: center;
+    background: #141414;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid #222;
+    transition: background 0.2s;
+}
+
+.achievement-row:hover {
+    background: #1f1f1f;
+    border-color: #333;
+}
+
+.ach-icon-small {
+    width: 50px;
+    height: 50px;
+    background: #000;
+    border: 2px solid #444;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+
+.ach-icon-small.rare {
+    border-color: #ffd700;
+    color: #ffd700;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.2);
+}
+
+.ach-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.ach-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #e0e0e0;
+    text-transform: capitalize; /* Garante que nomes fiquem bonitos */
+}
+
+.ach-info p {
+    font-size: 0.8rem;
+    color: #888;
+    margin: 0;
+}
+
+.ach-percent {
+    text-align: right;
+    min-width: 60px;
+}
+
+.ach-percent span {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.ach-percent .rarity-label {
+    font-size: 0.6rem;
+    color: #555;
+}
+
+
+
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #0a0a0a; /* Fundo quase preto */
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* TIPOGRAFIA */
+h1, h2, h3, h4 {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* HERO SECTION COM PARALLAX */
+.hero {
+    position: relative; /* Necessário para o overlay funcionar */
+    height: 100vh;      /* Ocupa 100% da altura da tela */
+    
+    /* Substitua 'fundo_natal_dark.jpg' pelo nome do arquivo que você gerou na IA */
+    background-image: url('fundo1.png'); 
+    
+    background-size: cover;       /* Estica a imagem para cobrir tudo */
+    background-position: center;  /* Centraliza o foco da árvore */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efeito Parallax (a imagem fica parada ao rolar) */
+    
+    /* Centraliza o conteúdo (texto) na tela */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;  
+    max-width: 800px;
+}
+
+/* LOGO ESTILIZADA */
+.game-logo h1 {
+    font-size: 5rem;
+    color: #b30000; /* Vermelho sangue/natal */
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+    letter-spacing: 5px;
+    margin-bottom: 0;
+}
+
+.game-logo .subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: #4caf50; /* Verde escuro do festão */
+    margin-top: -10px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(0,0,0,1);
+}
+
+.synopsis {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    color: #ccc;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* BOTÕES */
+.btn-play {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #b30000;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    border: 1px solid #ff3333;
+    box-shadow: 0 0 15px rgba(179, 0, 0, 0.5);
+}
+
+.btn-play:hover {
+    background: #ff0000;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 12px 30px;
+    background: transparent;
+    border: 2px solid #4caf50;
+    color: #4caf50;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background: #4caf50;
+    color: #000;
+}
+
+/* SETA SCROLL */
+.scroll-indicator {
+    position: absolute;
+    bottom: 60px;
+    z-index: 2;
+    text-align: center;
+    color: #aaa;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* SEÇÕES GERAIS */
+section {
+    padding: 80px 20px;
+    position: relative;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #f1f1f1;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #b30000;
+    margin: 10px auto 0;
+}
+
+/* ESTATÍSTICAS */
+#stats {
+    background-color: #0f0f0f;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    border-top: 3px solid #b30000;
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.big-number {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #4caf50;
+    margin: 10px 0;
+    font-family: 'Cinzel', serif;
+}
+
+.curiosities {
+    text-align: left;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+/* CONQUISTAS */
+#achievements {
+    background-color: #141414;
+    background-image: radial-gradient(circle at center, #1f1f1f 0%, #0a0a0a 100%);
+}
+
+.achievement-preview {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ach-item {
+    width: 120px;
+    text-align: center;
+}
+
+.ach-icon {
+    width: 80px;
+    height: 80px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: gold;
+    border: 2px solid #555;
+}
+
+/* DEV LOG */
+#dev {
+    background: #0a0a0a;
+    border-top: 1px solid #333;
+}
+
+.btn-text {
+    color: #b30000;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+}
+
+.btn-text:hover {
+    border-bottom: 1px solid #b30000;
+}
+
+/* FOOTER */
+footer {
+    padding: 40px 20px;
+    text-align: center;
+    background: black;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.socials a {
+    color: #888;
+    margin: 0 10px;
+    font-size: 1.2rem;
+}
+
+.socials a:hover {
+    color: white;
+}
+
+/* ANIMAÇÃO DE SCROLL (JS) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animação inicial do Hero */
+.fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.issues-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaço entre os cartões */
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza a coluna na tela */
+    text-align: left; /* Texto alinhado à esquerda dentro do cartão */
+}
+
+/* O Cartão Individual */
+.issue-item {
+    background-color: #1a1a1a; /* Fundo cinza escuro */
+    border: 1px solid #333;
+    border-left: 4px solid #b30000; /* Borda vermelha na esquerda para destaque */
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Efeito ao passar o mouse */
+.issue-item:hover {
+    transform: translateX(5px); /* Move levemente para a direita */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: #222;
+}
+
+/* Cabeçalho do item (Badge + Título) */
+.issue-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Garante que não quebre em celulares muito pequenos */
+}
+
+.issue-header h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+}
+
+/* Estilo da etiqueta "PENDENTE" ou "CORRIGIDO" */
+.status-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 1px;
+}
+
+/* Estilo específico para status de alerta (Pendente) */
+.status-badge.warning {
+    background-color: rgba(255, 165, 0, 0.15); /* Laranja transparente */
+    color: #ffb700; /* Texto laranja */
+    border: 1px solid #ffb700;
+}
+
+/* Estilo para status corrigido (caso você use no futuro) */
+.status-badge.fixed {
+    background-color: rgba(76, 175, 80, 0.15);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+/* Texto da descrição */
+.issue-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+/* Texto de solução temporária */
+.workaround {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #333;
+    font-style: italic;
+}
+
+.workaround strong {
+    color: #4caf50; /* Verde para destacar a palavra 'Solução' */
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .game-logo h1 { font-size: 3rem; }
+    .hero-content { padding-top: 60px; }
+    .logo-img {
+        width: 300px; /* Logo menor em telas pequenas */
+    }
+}
