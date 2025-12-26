@@ -353,7 +353,32 @@ section {
     gap: 20px;
     flex-wrap: wrap;
 }
+.hero-buttons {
+    display: flex;
+    gap: 20px; /* Espaço entre os botões */
+    justify-content: center;
+    margin-top: 20px;
+}   
 
+.btn-download {
+    display: inline-block;
+    padding: 15px 40px;
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro transparente */
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    border: 2px solid #fff; /* Borda branca para diferenciar */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-download:hover {
+    background: #fff;
+    color: #000; /* Inverte as cores ao passar o mouse */
+    transform: scale(1.05);
+}
 .ach-item {
     width: 120px;
     text-align: center;
@@ -526,5 +551,18 @@ footer {
     .hero-content { padding-top: 60px; }
     .logo-img {
         width: 300px; /* Logo menor em telas pequenas */
+    }
+    .hero-buttons {
+        flex-direction: column; 
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Garante que os botões tenham um tamanho bom para toque */
+    .btn-play, .btn-download {
+        width: 80%; /* Ocupa 80% da largura da tela */
+        text-align: center;
+        margin-bottom: 10px; /* Espacinho extra */
+        display: block; /* Garante comportamento de bloco */
     }
 }
